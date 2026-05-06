@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arinxiys Car Detailing</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #5b2a2a, #6e2f2f);
+    color: white;
+}
+
+/* HEADER */
+header {
+    background-color: #a93737;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-size: 14px;
+    font-style: italic;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* MAIN */
+main {
+    display: flex;
+    padding: 30px;
+}
+
+/* GALERIE */
+.gallery {
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ABOUT */
+.about {
+    width: 40%;
+    padding-left: 40px;
+}
+
+.about h1 {
+    font-size: 42px;
+    font-family: cursive;
+}
+
+.info {
+    margin: 30px 0;
+}
+
+.info h2 {
+    font-family: cursive;
+}
+
+/* FOOTER */
+footer {
+    background-color: #4a1f1f;
+    padding: 20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <div class="logo">ARINXIYS<br><span>Car Detailing</span></div>
+    <nav>
+        <a href="#">Caroserie</a>
+        <a href="#">Salon Auto</a>
+        <a href="#">Lumini</a>
+        <a href="#">Interior Salon</a>
+        <a href="#">Tuning Kits</a>
+    </nav>
+</header>
+
+<main>
+    <section class="gallery">
+        <img src="/assets/css/img/img 1.jpg">
+        <img src="/assets/css/img/img 2.jpg">
+        <img src="/assets/css/img/img 3.jpg">
+        <img src="/assets/css/img/img 4.jpg">
+    </section>
+
+    <section class="about">
+        <h1>De ce noi?</h1>
+
+        <div class="info">
+            <h2>Experiență</h2>
+            <p>Specialiști cu experiență de peste 15 ani în domeniu</p>
+        </div>
+
+        <div class="info">
+            <h2>Calitate</h2>
+            <p>Mașina dvs este fața noastră, așa că noi vă garantăm calitatea</p>
+        </div>
+
+        <div class="info">
+            <h2>Echipă</h2>
+            <p>O echipă solidă care își face lucrul la timp</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Contactează-ne:</p>
+    <p>061211104</p>
+    <p>arinxiysdetailing@gmail.com</p>
+</footer>
+
+</body>
+</html>
