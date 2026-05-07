@@ -1,0 +1,188 @@
+
+/* =========================
+   NAVBAR (Sticky + Glassmorphism)
+========================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 30px;
+
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+}
+
+/* underline animat */
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+  background: black;
+
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================
+   FLEXBOX LAB (The Perfect Box)
+========================= */
+
+.flex-container {
+  height: 80vh;
+  border: 6px double #333;
+
+  display: flex;
+  position: relative;
+}
+
+.box {
+  width: 120px;
+  height: 120px;
+  color: white;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-1 {
+  background: #e74c3c;
+  align-self: flex-start;
+}
+
+.box-2 {
+  background: #2ecc71;
+  margin: auto;
+}
+
+.box-3 {
+  background: #3498db;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+
+/* =========================
+   GRID LAB (Mozaic)
+========================= */
+
+.grid-container {
+  margin-top: 40px;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.grid-item {
+  padding: 30px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.grid-item-1 {
+  grid-column: 1 / 3;
+  background: rgba(155, 89, 182, 0.8);
+}
+
+.grid-item-2 {
+  background: rgba(52, 152, 219, 0.8);
+}
+
+.grid-item-3 {
+  background: rgba(46, 204, 113, 0.8);
+}
+
+.grid-item-4 {
+  grid-column: 1 / 3;
+  background: rgba(241, 196, 15, 0.8);
+}
+
+
+/* =========================
+   SERVICES GRID (AUTO-FIT)
+========================= */
+
+.services {
+  margin-top: 60px;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+
+  padding: 40px;
+}
+
+.service-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+  transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),
+              box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+
+/* =========================
+   MISSION SECTION (Flex)
+========================= */
+
+.mission {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+
+  padding: 40px;
+}
+
+.mission .text {
+  flex: 1;
+}
+
+.mission img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+/* =========================
+   RESPONSIVE (mobile)
+========================= */
+
+@media (max-width: 768px) {
+  .mission {
+    flex-direction: column-reverse;
+  }
+}

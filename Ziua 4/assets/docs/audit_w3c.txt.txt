@@ -1,0 +1,4 @@
+Erori identificate: 0
+
+Rezolvare: Codul a fost verificat prin W3C Markup Validator. 
+Au fost corectate eventualele erori de structură HTML (tag-uri închise corect, ierarhie validă a elementelor). 
