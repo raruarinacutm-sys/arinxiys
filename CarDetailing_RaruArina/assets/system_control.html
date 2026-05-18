@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>System Control | Arinxiys</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="system-control.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div class="logo">
+    ARINXIYS
+    <span>System Control</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#services">Services</a>
+    <a href="#security">Security</a>
+  </nav>
+
+</header>
+
+<main class="system-control">
+
+  <!-- HOLOGRAM -->
+  <section class="neural-section">
+
+    <div class="neural-glass" id="glass">
+
+      <div class="glass-ring ring-1"></div>
+      <div class="glass-ring ring-2"></div>
+      <div class="glass-ring ring-3"></div>
+
+      <div class="glass-core">
+        <span>NEURAL CORE</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+
+    <div class="services-grid">
+
+      <article class="service-card" style="--i:1;">
+        <div class="service-icon">🚀</div>
+        <h3>GPU Render</h3>
+        <p>Hardware accelerated rendering layer.</p>
+      </article>
+
+      <article class="service-card" style="--i:2;">
+        <div class="service-icon">⚡</div>
+        <h3>Quantum Sync</h3>
+        <p>Parallel orchestration pipeline.</p>
+      </article>
+
+      <article class="service-card" style="--i:3;">
+        <div class="service-icon">🧠</div>
+        <h3>Neural AI</h3>
+        <p>Predictive visual intelligence.</p>
+      </article>
+
+      <article class="service-card" style="--i:4;">
+        <div class="service-icon">🔒</div>
+        <h3>Security Layer</h3>
+        <p>Encrypted validation matrix.</p>
+      </article>
+
+      <article class="service-card" style="--i:5;">
+        <div class="service-icon">📡</div>
+        <h3>Realtime Stream</h3>
+        <p>Latency-free synchronization.</p>
+      </article>
+
+      <article class="service-card" style="--i:6;">
+        <div class="service-icon">🎯</div>
+        <h3>CLS Optimizer</h3>
+        <p>Stable rendering architecture.</p>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- SECURITY -->
+  <section class="security-section" id="security">
+
+    <form class="secure-form">
+
+      <h2 class="secure-form__title">
+        Secure Access
+      </h2>
+
+      <div class="secure-form__field">
+
+        <input
+          type="email"
+          required
+          placeholder=" "
+          class="secure-form__input"
+        >
+
+        <label class="secure-form__label">
+          Access Email
+        </label>
+
+      </div>
+
+      <div class="secure-form__field">
+
+        <input
+          type="password"
+          required
+          minlength="6"
+          placeholder=" "
+          class="secure-form__input"
+        >
+
+        <label class="secure-form__label">
+          Security Key
+        </label>
+
+      </div>
+
+      <div class="secure-form__checkbox">
+
+        <input type="checkbox" id="terms">
+
+        <label for="terms">
+          Accept secure authentication
+        </label>
+
+      </div>
+
+      <button
+        type="submit"
+        class="secure-form__submit">
+
+        Initialize Access
+
+      </button>
+
+    </form>
+
+  </section>
+
+</main>
+
+<script>
+
+const glass = document.getElementById("glass");
+
+document.addEventListener("mousemove", e => {
+
+  const x = (window.innerWidth / 2 - e.pageX) / 30;
+  const y = (window.innerHeight / 2 - e.pageY) / 30;
+
+  glass.style.transform = `
+    rotateY(${x}deg)
+    rotateX(${-y}deg)
+  `;
+});
+
+</script>
+
+</body>
+</html>
