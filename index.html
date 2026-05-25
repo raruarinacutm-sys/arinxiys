@@ -5,600 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arinxiys Car Detailing</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --crimson: #a93737;
-      --deep-red: #5b2a2a;
-      --darker-red: #4a1f1f;
-      --accent: #e05555;
-      --gold: #c9a84c;
-      --text: #f0e6e6;
-      --text-muted: #c4a0a0;
-      --input-bg: rgba(255,255,255,0.07);
-      --input-border: rgba(169,55,55,0.45);
-      --focus-glow: rgba(169,55,55,0.22);
-      --valid-green: #4caf82;
-      --error-red: #e05555;
-      --radius: 8px; }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Barlow', sans-serif;
-      background: linear-gradient(135deg, #3a1515 0%, #5b2a2a 50%, #6e2f2f 100%);
-      color: var(--text);
-      min-height: 100vh; }
-    header {
-      background: linear-gradient(90deg, #8c2a2a, #a93737);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      border-bottom: 2px solid var(--gold);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-    .logo {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 26px;
-      letter-spacing: 2px;
-      line-height: 1.1; }
-    .logo span {
-      font-family: 'Barlow', sans-serif;
-      font-size: 11px;
-      font-style: italic;
-      color: var(--gold);
-      letter-spacing: 3px;
-      display: block; }
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 13px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      position: relative;
-      padding-bottom: 3px;
-      transition: color 0.2s; }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 2px;
-      background: var(--gold);
-      transition: width 0.25s; }
-    nav a:hover { color: var(--gold); }
-    nav a:hover::after { width: 100%; }
-    main {
-      display: flex;
-      padding: 40px;
-      gap: 40px;}
-    .gallery {
-      width: 60%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px; }
-    .gallery img {
-      width: 100%;
-      border-radius: var(--radius);
-      object-fit: cover;
-      height: 220px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid rgba(201,168,76,0.2);}
-    .gallery img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5);}
-    .about { width: 40%; }
-    .about h1 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 52px;
-      letter-spacing: 2px;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 10px; }
-    .info {
-      margin: 24px 0;
-      border-left: 3px solid var(--crimson);
-      padding-left: 16px;}
-    .info h2 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 22px;
-      letter-spacing: 1px;
-      color: var(--accent);
-      margin-bottom: 6px;}
-    .info p {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.5;}
-    #servicii {
-      padding: 64px 40px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.1) 100%);
-      border-top: 1px solid rgba(201,168,76,0.2);
-      border-bottom: 1px solid rgba(201,168,76,0.2);}
-    #servicii .section-header {
-      text-align: center;
-      margin-bottom: 12px; }
-    #servicii .section-header h2 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 48px;
-      letter-spacing: 4px;
-      color: var(--gold);}
-    #servicii .section-header p {
-      font-size: 15px;
-      color: var(--text-muted);
-      font-style: italic;
-      margin-top: 6px;}
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      justify-content: center;
-      margin: 24px 0 48px;}
-    .divider::before,
-    .divider::after {
-      content: '';
-      flex: 1;
-      max-width: 160px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold)); }
-    .divider::after {
-      background: linear-gradient(90deg, var(--gold), transparent); }
-    .divider span { color: var(--gold); font-size: 18px; }
-    .servicii-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;                      
-      max-width: 1200px;
-      margin: 0 auto;
-      align-items: stretch;}
-    .serviciu-card {
-      flex: 1 1 calc(33.333% - 16px); 
-      min-width: 280px;               
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(169,55,55,0.3);
-      border-top: 3px solid var(--crimson);
-      border-radius: 12px;
-      padding: 32px 28px;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-      position: relative;
-      overflow: hidden  }
-    .serviciu-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at top left, rgba(169,55,55,0.12), transparent 70%);
-      opacity: 0;
-      transition: opacity 0.3s; }
-    .serviciu-card:hover::before { opacity: 1; }
-    .serviciu-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,168,76,0.25);
-      border-color: rgba(201,168,76,0.4); }
-    .serviciu-icon {
-      width: 54px;
-      height: 54px;
-      background: rgba(169,55,55,0.2);
-      border: 1px solid rgba(169,55,55,0.5);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-      transition: background 0.3s, transform 0.3s;}
-    .serviciu-card:hover .serviciu-icon {
-      background: rgba(169,55,55,0.35);
-      transform: scale(1.08); }
-    .serviciu-card h3 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 26px;
-      letter-spacing: 2px;
-      color: var(--gold);
-      margin-bottom: 10px;}
-    .serviciu-card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 20px;}
-    .serviciu-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 24px;}
-    .serviciu-features li {
-      font-size: 13px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 8px  }
-    .serviciu-features li::before {
-      content: '✓';
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 12px;
-      flex-shrink: 0; }
-    .serviciu-price {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(169,55,55,0.2);
-      border: 1px solid rgba(169,55,55,0.4);
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.5px;}
-    .serviciu-price strong {
-      color: var(--gold);
-      font-size: 15px; }
-    #despre {
-      padding: 60px 40px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 100%);
-      border-top: 1px solid rgba(201,168,76,0.2);
-      border-bottom: 1px solid rgba(201,168,76,0.2); }
-    #despre .section-header {
-      text-align: center;
-      margin-bottom: 48px;}
-    #despre .section-header h2 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 48px;
-      letter-spacing: 4px;
-      color: var(--gold);
-      margin-bottom: 8px; }
-    #despre .section-header p {
-      font-size: 15px;
-      color: var(--text-muted);
-      font-style: italic; }
-    .video-block { max-width: 860px; margin: 0 auto 56px; }
-    .video-block h3 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 24px;
-      letter-spacing: 3px;
-      color: var(--accent);
-      text-align: center;
-      margin-bottom: 20px;
-      text-transform: uppercase;}
-    .video-container {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid rgba(201,168,76,0.3);
-      box-shadow: 0 0 0 1px rgba(169,55,55,0.2), 0 12px 40px rgba(0,0,0,0.5), 0 0 60px rgba(169,55,55,0.15); }
-    .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none; }
-    .map-block { max-width: 860px; margin: 0 auto; }
-    .map-block h3 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 24px;
-      letter-spacing: 3px;
-      color: var(--accent);
-      text-align: center;
-      margin-bottom: 20px;
-      text-transform: uppercase; }
-    .map-container {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid rgba(201,168,76,0.3);
-      box-shadow: 0 0 0 1px rgba(169,55,55,0.2), 0 12px 40px rgba(0,0,0,0.5), 0 0 60px rgba(169,55,55,0.1); }
-    .map-container iframe {
-      width: 100%;
-      height: 400px;
-      display: block;
-      border: none;
-      filter: grayscale(25%) sepia(25%) hue-rotate(320deg); }
-    .map-address {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 16px;
-      padding: 12px 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(169,55,55,0.25);
-      border-radius: var(--radius);
-      max-width: 860px;
-      margin-left: auto;
-      margin-right: auto;}
-    .map-address .pin-icon { font-size: 20px; flex-shrink: 0; }
-    .map-address p { font-size: 14px; color: var(--text-muted); line-height: 1.4; }
-    .map-address strong { color: var(--gold); font-weight: 600; }
-    .contact-section {
-      padding: 50px 40px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.3) 100%);
-      border-top: 1px solid rgba(201,168,76,0.2);}
-    .contact-section > h2 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 42px;
-      letter-spacing: 3px;
-      color: var(--gold);
-      margin-bottom: 8px;
-      text-align: center;}
-    .subtitle {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 15px;
-      margin-bottom: 36px;
-      font-style: italic }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 36px;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: start; }
-    .contact-form {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(169,55,55,0.25);
-      border-radius: 12px;
-      padding: 36px;
-      backdrop-filter: blur(6px); }
-    fieldset {
-      border: 1px solid rgba(169,55,55,0.35);
-      border-radius: var(--radius);
-      padding: 32px 24px 24px;
-      margin-bottom: 28px;
-      background: rgba(255,255,255,0.02);
-      position: relative; }
-    legend {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 18px;
-      letter-spacing: 2px;
-      color: var(--gold);
-      padding: 0 12px;
-      margin-left: 10px; }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 24px;  }
-    .form-row.full { grid-template-columns: 1fr; }
-    .field { position: relative; display: flex; flex-direction: column; }
-    .field input,
-    .field select,
-    .field textarea {
-      background: var(--input-bg);
-      border: 1px solid var(--input-border);
-      border-radius: var(--radius);
-      color: var(--text);
-      font-family: 'Barlow', sans-serif;
-      font-size: 15px;
-      padding: 22px 14px 8px;
-      width: 100%;
-      outline: none;
-      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
-      caret-color: var(--gold); }
-    .field input::placeholder,
-    .field textarea::placeholder { color: transparent; }
-    .field label {
-      position: absolute;
-      top: 15px; left: 14px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-muted);
-      pointer-events: none;
-      transition: top 0.2s, font-size 0.2s, color 0.2s, letter-spacing 0.2s;
-      letter-spacing: 0.2px; }
-    .field input:not(:placeholder-shown) + label,
-    .field input:focus + label,
-    .field textarea:not(:placeholder-shown) + label,
-    .field textarea:focus + label {
-      top: 6px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); }
-    .field .select-wrap + label {
-      top: 6px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); }
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: var(--crimson);
-      background: rgba(169,55,55,0.1);
-      box-shadow: 0 0 0 3px var(--focus-glow); }
-    .field input:not(:placeholder-shown):valid { border-color: var(--valid-green); }
-    .field input:not(:placeholder-shown):valid + label { color: var(--valid-green); }
-    .field input:not(:placeholder-shown):invalid { border-color: var(--error-red); }
-    .field input:not(:placeholder-shown):invalid + label { color: var(--error-red); }
-    .error-msg {
-      position: absolute;
-      bottom: calc(100% + 7px); left: 0;
-      background: #3b0e0e;
-      border: 1px solid var(--error-red);
-      border-radius: 6px;
-      color: #ff9f9f;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.4px;
-      padding: 6px 10px;
-      white-space: nowrap;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.2s, transform 0.2s;
-      z-index: 10; }
-    .error-msg::after {
-      content: '';
-      position: absolute;
-      top: 100%; left: 14px;
-      border: 5px solid transparent;
-      border-top-color: var(--error-red); }
-    .field input:focus:invalid ~ .error-msg { opacity: 1; transform: translateY(0); }
-    .select-wrap { position: relative; }
-    .field select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; }
-    .field select option { background: #5b2a2a; color: var(--text); }
-    .select-arrow {
-      position: absolute;
-      right: 14px; top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
-      width: 0; height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 6px solid var(--gold); }
-    .textarea-wrap { position: relative; }
-    .field textarea {
-      resize: vertical;
-      min-height: 130px;
-      max-height: 280px;
-      line-height: 1.5;
-      padding-bottom: 28px; }
-    .char-counter {
-      position: absolute;
-      bottom: 9px; right: 12px;
-      font-size: 11px;
-      color: var(--text-muted);
-      pointer-events: none;
-      letter-spacing: 0.5px;
-      transition: color 0.2s;}
-    .char-counter.warn  { color: #e0a040; }
-    .char-counter.danger { color: var(--error-red); }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 6px 20px rgba(169,55,55,0.4); }
-      50%       { box-shadow: 0 10px 36px rgba(169,55,55,0.75), 0 0 0 4px rgba(201,168,76,0.15); } }
-    .btn-submit {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #a93737, #c04545);
-      border: none;
-      border-bottom: 2px solid var(--gold);
-      border-radius: var(--radius);
-      color: white;
-      cursor: pointer;
-      font-family: 'Bebas Neue', cursive;
-      font-size: 19px;
-      letter-spacing: 2px;
-      padding: 14px 40px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s, transform 0.15s;
-      margin-top: 6px;
-      min-width: 220px; }
-    .btn-submit::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 55%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-      transition: left 0.5s;}
-    .btn-submit:hover {
-      background: linear-gradient(135deg, #c04545, #d85050);
-      transform: translateY(-2px);
-      animation: pulse-glow 1.5s ease-in-out infinite; }
-    .btn-submit:hover::before { left: 160%; }
-    .btn-submit:active {
-      transform: scale(0.97);
-      animation: none;
-      background: linear-gradient(135deg, #8a2a2a, #a93737); }
-    .btn-spinner {
-      width: 16px; height: 16px;
-      border: 2px solid rgba(255,255,255,0.3);
-      border-top-color: white;
-      border-radius: 50%;
-      display: none;
-      animation: spin 0.7s linear infinite;
-      flex-shrink: 0;}
-    .btn-submit:active .btn-spinner { display: block; }
-    .btn-submit:active .btn-icon    { display: none; }
-    .btn-submit:active .btn-label   { opacity: 0.75; }
-    .contact-sidebar { display: flex; flex-direction: column; gap: 24px; }
-    .map-wrapper {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(201,168,76,0.25);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-    .map-wrapper iframe {
-      width: 100%;
-      height: 240px;
-      display: block;
-      border: none;
-      filter: grayscale(30%) sepia(20%);}
-    .contact-details {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(169,55,55,0.25);
-      border-radius: 12px;
-      padding: 24px; }
-    .contact-details h3 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 20px;
-      letter-spacing: 2px;
-      color: var(--gold);
-      margin-bottom: 18px;
-      border-bottom: 1px solid rgba(201,168,76,0.2);
-      padding-bottom: 10px;}
-    .contact-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
-    .contact-icon {
-      width: 36px; height: 36px;
-      background: rgba(169,55,55,0.2);
-      border: 1px solid rgba(169,55,55,0.4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      flex-shrink: 0;}
-    .contact-item p { font-size: 14px; color: var(--text-muted); line-height: 1.5; padding-top: 2px; }
-    .contact-item strong {
-      display: block;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2px;}
-    .schedule-badge {
-      background: rgba(169,55,55,0.15);
-      border: 1px solid rgba(169,55,55,0.3);
-      border-radius: var(--radius);
-      padding: 10px 14px;
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7 }
-    .schedule-badge span { color: var(--gold); font-weight: 600; }
-    footer {
-      background: var(--darker-red);
-      border-top: 2px solid rgba(201,168,76,0.3);
-      padding: 28px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px; }
-    .footer-brand { font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; color: var(--gold); }
-    .footer-brand p { font-family: 'Barlow', sans-serif; font-size: 12px; color: var(--text-muted); letter-spacing: 1px; margin-top: 4px; }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--gold); }
-    @media (max-width: 900px) {
-      .contact-grid { grid-template-columns: 1fr; }
-      main { flex-direction: column; }
-      .gallery, .about { width: 100%; }
-      header { flex-direction: column; gap: 12px; }
-      #despre { padding: 40px 20px; }
-      #servicii { padding: 48px 20px; }
-      .map-container iframe { height: 280px; }
-      .serviciu-card {
-        flex: 1 1 calc(50% - 12px); } }
-    @media (max-width: 600px) {
-      .form-row { grid-template-columns: 1fr; }
-      .contact-section { padding: 36px 20px; }
-      main { padding: 24px 20px; }
-      .video-container, .map-container { border-radius: 8px; }
-      .map-container iframe { height: 220px; }
-      #despre .section-header h2,
-      #servicii .section-header h2 { font-size: 36px; }
-      .servicii-grid {
-        flex-direction: column;}
-      .serviciu-card {
-        flex: 1 1 100%;  
-        min-width: unset; }}
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 <header>
   <div class="logo">ARINXIYS<br><span>Car Detailing</span></div>
@@ -610,41 +19,38 @@
     <a href="#contact">Contact</a>
   </nav>
 </header>
+
 <main>
   <section class="gallery">
+    <img
+      src="/assets/img/img 4 (1).webp"
+      alt="Detaliere auto exterior"
+      width="600"
+      height="400"
+      decoding="async">
+    <img
+      src="/assets/img/img 1 (1).webp"
+      alt="Polizare caroserie"
+      loading="lazy"
+      width="600"
+      height="400"
+      decoding="async">
+    <img
+      src="/assets/img/img 2 (1).webp"
+      alt="Curățare salon"
+      loading="lazy"
+      width="600"
+      height="400"
+      decoding="async">
+    <img
+      src="/assets/img/img 3 (1).webp"
+      alt="Tuning kit"
+      loading="lazy"
+      width="600"
+      height="400"
+      decoding="async">
+  </section>
 
-  <img
-    src="/assets/img/img 4 (1).webp"
-    alt="Detaliere auto exterior"
-    width="600"
-    height="400"
-    decoding="async">
-
-  <img
-    src="/assets/img/img 1.jpg"
-    alt="Polizare caroserie"
-    loading="lazy"
-    width="600"
-    height="400"
-    decoding="async">
-
-  <img
-    src="/assets/img/img 2.jpg"
-    alt="Curățare salon"
-    loading="lazy"
-    width="600"
-    height="400"
-    decoding="async">
-
-  <img
-    src="/assets/img/img 3.jpg"
-    alt="Tuning kit"
-    loading="lazy"
-    width="600"
-    height="400"
-    decoding="async">
-
-</section>
   <section class="about">
     <h1>De ce noi?</h1>
     <div class="info">
@@ -661,6 +67,7 @@
     </div>
   </section>
 </main>
+
 <section id="servicii">
   <div class="section-header">
     <h2>Serviciile Noastre</h2>
@@ -736,6 +143,22 @@
     </div>
   </div>
 </section>
+
+<section class="adaptive-showcase">
+  <div class="adaptive-card">
+    <div class="adaptive-card__header">Calitate</div>
+    <p class="adaptive-card__body">Avem grijă de mașina ta</p>
+  </div>
+  <div class="adaptive-card">
+    <div class="adaptive-card__header">Aspect</div>
+    <p class="adaptive-card__body">Va arăta ca nouă</p>
+  </div>
+  <div class="adaptive-card">
+    <div class="adaptive-card__header">Preț</div>
+    <p class="adaptive-card__body">Mai ieftin nu găsești</p>
+  </div>
+</section>
+
 <section id="despre">
   <div class="section-header">
     <h2>Despre Noi</h2>
@@ -746,9 +169,11 @@
     <h3>🎬 Prezentare Arinxiys Detailing</h3>
     <div class="video-container">
       <iframe
-        src="https://www.youtube.com/embed/kdObtwDnNZs"
+        src="/assets/img/6159290-hd_1920_1080_30fps.mp4"
         title="Noi tot putem asa!"
+        sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerpolicy="no-referrer"
         allowfullscreen
         loading="lazy">
       </iframe>
@@ -759,6 +184,7 @@
     <div class="map-container">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2720.1!2d28.8386!3d47.0412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97ef9b2a8b0c5%3A0x1!2sBulevardul+Dacia+23%2C+Chi%C8%99in%C4%83u!5e0!3m2!1sro!2smd!4v1"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
@@ -780,6 +206,7 @@
     </div>
   </div>
 </section>
+
 <section class="contact-section" id="contact">
   <h2>Contactează-ne</h2>
   <p class="subtitle">Completează formularul și te vom contacta în cel mai scurt timp</p>
@@ -857,10 +284,12 @@
         </button>
       </fieldset>
     </form>
+
     <aside class="contact-sidebar">
       <div class="map-wrapper">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91392.64!2d28.7575!3d47.0245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c3628b769a1%3A0x37d1d6305749dd3e!2sChișinău!5e0!3m2!1sro!2smd!4v1"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
           allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="Locația Arinxiys Car Detailing">
@@ -889,6 +318,7 @@
     </aside>
   </div>
 </section>
+
 <footer>
   <div class="footer-brand">
     ARINXIYS
@@ -901,7 +331,18 @@
     <a href="#despre">Despre</a>
     <a href="#contact">Contact</a>
   </div>
+  <div class="footer-social">
+    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-social__item">GitHub</a>
+    <a href="https://utm.md" target="_blank" rel="noopener noreferrer" class="footer-social__item">Portal UTM</a>
+    <a href="https://maps.google.com/?q=Bulevardul+Dacia+23,+Chisinau,+Moldova" target="_blank" rel="noopener noreferrer" class="footer-social__item">Google Maps</a>
+    
+    <!-- ELEMENTUL GDPR INTEGRAT DISCRET FĂRĂ SĂ STRICE NIMIC DIN FUNCTIUNILE SAU FLEXBOX-UL FOOTERULUI -->
+    <label for="optOutTelemetry" style="display: block; width: 100%; margin-top: 20px; font-size: 11px; color: #666; cursor: pointer; text-transform: none; letter-spacing: 0;">
+      <input type="checkbox" id="optOutTelemetry" style="vertical-align: middle; margin-right: 4px;"> Opriți telemetria / cookies
+    </label>
+  </div>
 </footer>
+
 <script>
   function updateCounter(el) {
     const counter = document.getElementById('char-counter');
@@ -910,8 +351,27 @@
     counter.textContent = `${len} / ${max}`;
     counter.classList.remove('warn', 'danger');
     if (len >= max * 0.9)      counter.classList.add('danger');
-    else if (len >= max * 0.7) counter.classList.add('warn'); }
+    else if (len >= max * 0.7) counter.classList.add('warn');
+  }
+
+  // Sincronizare stare bifa Opt-Out
+  document.addEventListener("DOMContentLoaded", function() {
+    const checkbox = document.getElementById('optOutTelemetry');
+    if (localStorage.getItem('utm_telemetry_opt_out') === 'true') {
+        checkbox.checked = true;
+    }
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            localStorage.clear();
+            sessionStorage.clear();
+            localStorage.setItem('utm_telemetry_opt_out', 'true');
+        } else {
+            localStorage.removeItem('utm_telemetry_opt_out');
+            window.location.reload();
+        }
+    });
+  });
 </script>
+<script src="telemetry.js"></script>
 </body>
 </html>
-
